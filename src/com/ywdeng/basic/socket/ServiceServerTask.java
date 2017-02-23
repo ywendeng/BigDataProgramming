@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import java.net.Socket;
 
 
@@ -37,14 +39,19 @@ public class ServiceServerTask implements Runnable{
 			 out=socket.getOutputStream();
 			//将输入流转换为BufferReader
 			BufferedReader  reader= new BufferedReader(new InputStreamReader(in));
-		    String str=reader.readLine();
-		    GetDataServiceImpl serviceImpl=new GetDataServiceImpl();
-		    String result=serviceImpl.getData(str);
+		    String[] str=reader.readLine().split(",");
+		    //通过反射机制来获取调用的类和方法
+		    Class<?> cl1=Class.forName(str[0]);
+		    Constructor<?> constructor=cl1.getConstructor();
+		    Object object=constructor.newInstance();
+		    //获取需要调用的方法
+		    Method fun=cl1.getMethod(str[1], String.class);
+		    String result=(String) fun.invoke(object, str[2]);
 		    // 将处理好的结果写入的输出流中
 		    PrintWriter  pw=new PrintWriter(out);
 		    pw.println(result);
 		    pw.flush();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
 			//将输入流输出流关闭

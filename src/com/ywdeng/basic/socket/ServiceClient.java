@@ -32,7 +32,7 @@ public static void main(String[] args) throws IOException {
 	  in =socket.getInputStream();
 	  //将请求发写入输入流中，并发送到服务端
 	  PrintWriter  pw=new PrintWriter(out);
-	  pw.println("Hello is James");
+	  pw.println("com.ywdeng.basic.socket.GetDataServiceImpl,getData,dengyuanwen");
 	  pw.flush();
 	  //向输入流中获取服务端的返回值
 	  BufferedReader reader=new BufferedReader(new InputStreamReader(in));

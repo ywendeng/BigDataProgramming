@@ -10,5 +10,8 @@ public class GetDataServiceImpl {
 	public String getData(String str){
 		return "ok  "+str;
 	}
+	public String getName(String str){
+		return "my nam is "+ str;
+	}
 
 }
