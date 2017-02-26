@@ -152,21 +152,23 @@ public class TestChannel {
 	   try {
 		   //获取文件操作对象
 		   in=new FileInputStream("C:/Users/JimG/Desktop/01107.mp4");
-		   out=new FileOutputStream("C:/Users/JimG/Desktop/9.mp4");
+		   out=new FileOutputStream("C:/Users/JimG/Desktop/to001.mp4");
 		   //获取支持管道的对象的管道
 		   inc=in.getChannel();
 		   outc=out.getChannel();
 		   //将读取管道中的数据读入到缓冲区中
-		   ByteBuffer buf=ByteBuffer.allocate(1024);
-		   //反复将管道中的数据写入缓冲区中，之后将缓冲区中的数据写入管道中
-		   while(inc.read(buf)!=-1){
-			   //设置缓冲区为读模式
-			   buf.flip();
-			   //将缓冲区中的数写入输出管道中
-			   outc.write(buf); 
-			   //将缓冲区清空，为了下次继续读取
-			   buf.clear();
-		   }
+//		   ByteBuffer buf=ByteBuffer.allocate(1024);
+//		   //反复将管道中的数据写入缓冲区中，之后将缓冲区中的数据写入管道中
+//		   while(inc.read(buf)!=-1){
+//			   //设置缓冲区为读模式
+//			   buf.flip();
+//			   //将缓冲区中的数写入输出管道中
+//			   outc.write(buf); 
+//			   //将缓冲区清空，为了下次继续读取
+//			   buf.clear();
+//		   }
+		   //直接使用通道之间的数据传输
+		   inc.transferTo(0, inc.size(), outc);
 		
 	} catch (Exception e) {
 		// TODO: handle exception
