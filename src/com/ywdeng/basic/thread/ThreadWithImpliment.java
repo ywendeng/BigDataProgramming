@@ -1,4 +1,4 @@
-package cn.ywdeng.basic.thread;
+package com.ywdeng.basic.thread;
 
 import java.util.Random;
 

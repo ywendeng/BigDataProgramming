@@ -1,4 +1,4 @@
-package cn.ywdeng.basic.lock;
+package com.ywdeng.basic.lock;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 

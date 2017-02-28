@@ -1,4 +1,4 @@
-package com.ywdeng.daynamicproxy;
+package com.ywdeng.basic.proxy;
 
 /**
  * @author ywdeng
