@@ -1,4 +1,4 @@
-package cn.ywdeng.basic.lock;
+package com.ywdeng.basic.lock;
 
 /**
  * @author ywdeng
