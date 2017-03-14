@@ -21,12 +21,13 @@ public class MyLock {
 	
 	public static void main(String[] args) {
 		new Thread("Thread1"){
+			@Override
 			public void run(){
 		    try{
 		     lock.lock();
 		     for(int i= 0;i<=5; i++)
 		        array.add(i);
-				this.sleep(10000);
+				Thread.sleep(10000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -39,12 +40,13 @@ public class MyLock {
 		}.start();
 		
 		new Thread("Thread2"){
+			@Override
 			public void run(){
 		    try{
 		     lock.lock();
 		     for(int i= 5;i<=10; i++)
 		        array.add(i);
-				this.sleep(10000);
+				Thread.sleep(10000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

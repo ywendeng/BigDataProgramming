@@ -19,12 +19,13 @@ public class MySynchronized {
 	public static void main(String[] args) {
 		// 同时创建两个线程
 		new Thread("Thread1") {
+			@Override
 			public void run() {
 				// 使用Synchronized 来同步代码块
 				synchronized (Object.class) {
 					System.out.println(this.getName() + " start");
 					try {
-						this.sleep(10000);
+						Thread.sleep(10000);
 						System.out.println(this.getName() + " end");
 					} catch (InterruptedException e) {
 						e.printStackTrace();
@@ -35,12 +36,13 @@ public class MySynchronized {
 		}.start();
 
 		new Thread("Thread2") {
+			@Override
 			public void run() {
 				// 使用Synchronized 来同步代码块
 				synchronized (Object.class) {
 					System.out.println(this.getName() + " start");
 					try {
-						this.sleep(10000);
+						Thread.sleep(10000);
 						System.out.println(this.getName() + " end");
 					} catch (InterruptedException e) {
 						e.printStackTrace();

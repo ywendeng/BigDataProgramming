@@ -34,7 +34,7 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf>{
 			throws Exception {
 		System.out.println("client 读取server数据..");
 		// 服务端返回消息后
-		ByteBuf buf = (ByteBuf) msg;
+		ByteBuf buf = msg;
 		byte[] req = new byte[buf.readableBytes()];
 		buf.readBytes(req);
 		String body = new String(req, "UTF-8");

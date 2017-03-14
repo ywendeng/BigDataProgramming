@@ -20,6 +20,7 @@ public class MyTryLock {
 
 	public static void main(String[] args) {
 		new Thread("Thread1") {
+			@Override
 			public void run() {
 				boolean th1=false;
 				try {
@@ -29,7 +30,7 @@ public class MyTryLock {
 						System.out.println(this.getName()+" 线程获得了琐");
 						for (int i = 0; i < 20; i++)
 							array.add(i);
-                        this.sleep(200);
+                        Thread.sleep(200);
 					}
 				} catch (InterruptedException e) {
 					System.out.println("等待线程被中断");
@@ -42,6 +43,7 @@ public class MyTryLock {
 			}
 		}.start();
 		new Thread("Thread2") {
+			@Override
 			public void run() {
                 boolean th2=false;
 				try {
@@ -51,7 +53,7 @@ public class MyTryLock {
 						System.out.println(this.getName()+" 线程获得了琐");
 						for (int i = 20; i < 20; i++)
 							array.add(i);
-                        this.sleep(200);
+                        Thread.sleep(200);
 					}else {
 						System.out.println("当前线程没有获取到锁");
 					}

@@ -16,6 +16,7 @@ public class ThreadWithExtends extends Thread {
 		this.flag = flag;
 	}
 
+	@Override
 	public void run() {
 		String threadName = Thread.currentThread().getName();
 		System.out.println(threadName + "线程的run 方法被调用.....");

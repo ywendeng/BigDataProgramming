@@ -14,6 +14,7 @@ public class Person implements Serializable {
 	private String sex;
 	private int age;
 
+	@Override
 	public String toString() {
 		return "name:" + name + " sex:" + sex + " age:" + age;
 	}

@@ -1,10 +1,5 @@
 package com.ywdeng.basic.netty.sendstring.client;
 
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-
-
-
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
@@ -35,7 +30,7 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 	protected void channelRead0(ChannelHandlerContext arg0, ByteBuf msg)
 			throws Exception {
 		System.out.println("服务器端返回数据,接收数据开始.......");
-		ByteBuf buf = (ByteBuf) msg;
+		ByteBuf buf = msg;
 		//声明一个缓冲区用于接收数据
 		byte[] dst =new byte[buf.readableBytes()];
 	    buf.readBytes(dst);

@@ -1,7 +1,5 @@
 package com.ywdeng.basic.netty.sendobject.server;
 
-import java.nio.Buffer;
-
 import com.ywdeng.basic.netty.sendobject.bean.Person;
 
 import io.netty.buffer.ByteBuf;

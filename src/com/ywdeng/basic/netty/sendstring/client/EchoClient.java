@@ -9,7 +9,6 @@ import java.net.InetSocketAddress;
 
 
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.ChannelException;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;

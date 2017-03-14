@@ -16,14 +16,16 @@ public class MyReentrantReadWriteLock {
 	        final MyReentrantReadWriteLock test = new MyReentrantReadWriteLock();
 	         
 	        new Thread(){
-	            public void run() {
+	            @Override
+				public void run() {
 	                test.get();
 	                test.write();
 	            };
 	        }.start();
 	         
 	        new Thread(){
-	            public void run() {
+	            @Override
+				public void run() {
 	                test.get();
 	                test.write();
 	            };
