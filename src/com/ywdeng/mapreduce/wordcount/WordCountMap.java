@@ -22,7 +22,7 @@ protected void map(LongWritable key, Text value,
 		throws IOException, InterruptedException {
 	  String line= value.toString();
 	  //对输入的行进行切分为数组
-	  String[]words= line.split(" ");
+	  String[]words= line.split(",");
 	  for(String word:words)
 		  context.write(new Text(word), new IntWritable(1));
 }
