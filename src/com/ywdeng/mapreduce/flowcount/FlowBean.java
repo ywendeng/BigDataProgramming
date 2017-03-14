@@ -3,6 +3,7 @@ package com.ywdeng.mapreduce.flowcount;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
+import java.util.Set;
 
 import org.apache.hadoop.io.Writable;
 
@@ -43,7 +44,11 @@ public class FlowBean implements Writable {
 	public void setUpFlow(long upFlow) {
 		this.upFlow = upFlow;
 	}
-
+    public void set(long downFlow,long upFlow){
+    	this.downFlow=downFlow;
+    	this.upFlow=upFlow;
+    	this.sumFlow=downFlow+upFlow;
+    }
     //系列化
 	@Override
 	public void write(DataOutput out) throws IOException {
