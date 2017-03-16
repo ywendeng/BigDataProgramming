@@ -6,14 +6,15 @@ import java.io.IOException;
 import java.util.Set;
 
 import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.WritableComparable;
 
 /**
  * @author ywdeng
  * @date 2017年3月12日
  * @Title: FlowBean.java
- * @Description:主要用于封装流量的两个属性
+ * @Description:主要用于封装流量的两个属性,实现系列化接口writable和对象比较接口Comparable
  */
-public class FlowBean implements Writable {
+public class FlowBean implements WritableComparable<FlowBean>{
      private long downFlow;
      private long upFlow;
      private long  sumFlow;
@@ -68,4 +69,9 @@ public class FlowBean implements Writable {
     public String toString() {
     	return downFlow+"\t"+upFlow+"\t"+sumFlow;
     }
+	@Override
+	public int compareTo(FlowBean o) {
+		// 从大到小的排序
+		return this.sumFlow>o.sumFlow?-1:1;
+	}
 }

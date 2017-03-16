@@ -12,18 +12,18 @@ import org.apache.hadoop.mapreduce.Reducer;
  * @Description:  主要负责对map端的输出相同key的汇总
  */
 public class FlowReduce extends Reducer<Text, FlowBean, Text, FlowBean>{
-   @Override
+  FlowBean flowBean=new FlowBean();
+	@Override
 protected void reduce(Text key, Iterable<FlowBean> values,
 		Context context)
 		throws IOException, InterruptedException {
 	  long sumDownFlow=0;
 	  long sumUpFlow=0;
-	  long sumFlow=0;
 	  for (FlowBean bean: values){
 		  sumDownFlow+=bean.getDownFlow();
-		  sumUpFlow+=bean.getUpFlow();
-		  sumFlow+=sumDownFlow+sumUpFlow;  
-	  }   
-	context.write(key,new FlowBean(sumDownFlow,sumUpFlow,sumFlow));
+		  sumUpFlow+=bean.getUpFlow();  
+	  }
+	  flowBean.set(sumDownFlow, sumUpFlow);
+	context.write(key,flowBean);
 }
 }
