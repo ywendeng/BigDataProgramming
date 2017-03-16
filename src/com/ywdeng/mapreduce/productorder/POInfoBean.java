@@ -158,7 +158,7 @@ public class POInfoBean implements Writable{
 
 	@Override
 	public String toString() {
-		return "order_id=" + order_id + ", dateString=" + dateString + ", p_id=" + p_id + ", amount=" + amount + ", pname=" + pname + ", category_id=" + category_id + ", price=" + price;
+		return  order_id + "\t" + dateString + "\t" + p_id + "\t" + amount + "\t" + pname + "\t" + category_id + "\t" + price;
 	}
 
 	
