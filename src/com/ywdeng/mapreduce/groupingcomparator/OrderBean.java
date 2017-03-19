@@ -1,4 +1,4 @@
-package com.ywdeng.mapreduce.groupingcomputer;
+package com.ywdeng.mapreduce.groupingcomparator;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -49,9 +49,7 @@ public class OrderBean implements WritableComparable<OrderBean>{
 	@Override
 	public void write(DataOutput out) throws IOException {
 		out.writeUTF(oid.toString());
-		out.writeDouble(price.get());
-		
-		
+		out.writeDouble(price.get());	
 	}
 
 	@Override

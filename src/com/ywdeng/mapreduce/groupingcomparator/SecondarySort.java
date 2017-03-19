@@ -1,4 +1,4 @@
-package com.ywdeng.mapreduce.groupingcomputer;
+package com.ywdeng.mapreduce.groupingcomparator;
 
 import java.io.IOException;
 

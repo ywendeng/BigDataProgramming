@@ -1,4 +1,4 @@
-package com.ywdeng.mapreduce.groupingcomputer;
+package com.ywdeng.mapreduce.groupingcomparator;
 
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;
